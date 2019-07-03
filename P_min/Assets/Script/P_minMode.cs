@@ -8,7 +8,8 @@ public class P_minMode : MonoBehaviour {
         follow,
         attack,
         recovery,
-        alignment
+        alignment,
+        avoidance
     }
 
     public mode p_mode;

@@ -18,7 +18,6 @@ public class PikminMove : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(this.i);
         if (this.mode.p_mode == P_minMode.mode.follow) {
             this.moveVec = player.transform.position - this.transform.position;
             this.GetComponent<Rigidbody>().velocity = new Vector3(this.moveVec.normalized.x * this.speed, this.GetComponent<Rigidbody>().velocity.y, this.moveVec.normalized.z * this.speed);
@@ -37,6 +36,10 @@ public class PikminMove : MonoBehaviour {
         }
         if (this.preMode.p_mode == P_minMode.mode.alignment && this.mode.p_mode != P_minMode.mode.alignment) {
             player.GetComponent<AlignmentPosition>().inPosition[this.i] = false;
+        }
+        if (this.mode.p_mode == P_minMode.mode.avoidance)
+        {
+            this.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1, 1), this.GetComponent<Rigidbody>().velocity.y, Random.Range(-1, 1));
         }
         this.preMode.p_mode = this.mode.p_mode;
     }
