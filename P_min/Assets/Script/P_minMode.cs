@@ -15,7 +15,8 @@ public class P_minMode : MonoBehaviour {
     public mode p_mode;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
+        p_mode = mode.follow;
     }
 	
 	// Update is called once per frame

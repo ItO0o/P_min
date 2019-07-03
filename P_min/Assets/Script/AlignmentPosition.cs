@@ -32,18 +32,4 @@ public class AlignmentPosition : MonoBehaviour {
             }
         }
     }
-    void Start() {
-        //var childTransform = GameObject.Find("Pikmins").GetComponentsInChildren<Transform>();
-
-        //foreach (Transform child in childTransform) {
-        //    if (null != child.GetComponent<Animator>() && pikmins.IndexOf(child.gameObject) == -1) {
-        //        this.pikmins.Add(child.gameObject);
-        //    }
-        //}
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
 }
