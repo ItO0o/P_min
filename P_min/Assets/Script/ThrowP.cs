@@ -29,7 +29,7 @@ public class ThrowP : MonoBehaviour {
                 //    tmp = pikmins[i];
                 //}
             //}
-            LeadP_minFlag.leadingP_min.GetComponent<Rigidbody>().velocity = new Vector3(player.GetComponent<Rigidbody>().velocity.x * jumpPower,jumpPower, player.GetComponent<Rigidbody>().velocity.z * jumpPower);
+            LeadP_minFlag.leadingP_min.GetComponent<Rigidbody>().velocity = new Vector3(player.GetComponent<Rigidbody>().velocity.x * jumpPower,jumpPower * 10, player.GetComponent<Rigidbody>().velocity.z * jumpPower);
             PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[LeadP_minFlag.leadingP_min.GetComponent<PikminMove>().i] = false;
             LeadP_minFlag.leadingP_min.GetComponent<P_minMode>().p_mode = P_minMode.mode.attack;
             //pikmins.Clear();

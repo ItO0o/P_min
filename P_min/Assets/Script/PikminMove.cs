@@ -42,6 +42,7 @@ public class PikminMove : MonoBehaviour {
                 }
             }
             if (i != 0 && PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[0] == false) {
+                PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] = false;
                 i--;
                 PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] = true;
                 if (i == 0) {
@@ -54,14 +55,14 @@ public class PikminMove : MonoBehaviour {
         }
         if (this.preMode.p_mode == P_minMode.mode.alignment && this.mode.p_mode != P_minMode.mode.alignment)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] = false;
         }
         else if (this.mode.p_mode == P_minMode.mode.avoidance)
         {
             //Vector3 tmp = Vector3.Cross(this.velocity.normalized, new Vector3(0, 1, 0)).normalized;
             //this.GetComponent<Rigidbody>().velocity = new Vector3(tmp.x * speed , this.GetComponent<Rigidbody>().velocity.y, tmp.z * speed);
-            this.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1, 1) * speed, this.GetComponent<Rigidbody>().velocity.y, Random.Range(-1, 1) * speed);
+            this.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-2, 2) * speed, this.GetComponent<Rigidbody>().velocity.y, Random.Range(-2, 2) * speed);
         }
         this.preMode.p_mode = this.mode.p_mode;
 

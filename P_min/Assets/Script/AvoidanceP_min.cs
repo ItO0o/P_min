@@ -17,14 +17,14 @@ public class AvoidanceP_min : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.transform.tag.Equals("P_min"))
+        if (other.transform.tag.Equals("P_min") && this.transform.GetComponent<P_minMode>().p_mode != P_minMode.mode.avoidance)
         {
             tmp = this.GetComponent<P_minMode>().p_mode;
         }
     }
     void OnCollisionStay(Collision other)
     {
-        if (other.transform.tag.Equals("P_min"))
+        if (other.transform.tag.Equals("P_min") && (tmp == P_minMode.mode.follow || tmp == P_minMode.mode.alignment))
         {
             this.transform.GetComponent<P_minMode>().p_mode = P_minMode.mode.avoidance;
         }

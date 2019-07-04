@@ -74,6 +74,7 @@
     <Compile Include="Assets\Script\LeadP_minFlag.cs" />
     <Compile Include="Assets\Script\MouseCont.cs" />
     <Compile Include="Assets\Script\Move.cs" />
+    <Compile Include="Assets\Script\P_minAnime.cs" />
     <Compile Include="Assets\Script\P_minFlagManager.cs" />
     <Compile Include="Assets\Script\P_minMode.cs" />
     <Compile Include="Assets\Script\P_minRecovery.cs" />
