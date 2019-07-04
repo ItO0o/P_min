@@ -8,12 +8,12 @@ public class PikminMove : MonoBehaviour {
     public float speed;
     P_minMode mode = new P_minMode();
     Vector3 myPos;
-    int i;
-    Vector2 velocity; 
+    public int i;
+    Vector2 m_velocity; 
     // Use this for initialization
     void Start() {
         this.mode = this.GetComponent<P_minMode>();
-        //velocity = this.GetComponent<Rigidbody>().velocity;
+        m_velocity = this.GetComponent<Rigidbody>().velocity;
     }
 
     // Update is called once per frame
@@ -33,25 +33,35 @@ public class PikminMove : MonoBehaviour {
                 {
                     if (PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] == false)
                     {
+                        if (i == 0) {
+                            LeadP_minFlag.leadingP_min = this.gameObject;
+                        }
                         PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] = true;
                         break;
                     }
                 }
-                Debug.Log(i);
+            }
+            if (i != 0 && PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[0] == false) {
+                i--;
+                PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] = true;
+                if (i == 0) {
+                    LeadP_minFlag.leadingP_min = this.gameObject;
+                }
             }
             this.myPos = PlayerObj.player.GetComponent<AlignmentPosition>().posObj[this.i].transform.position;
             //Debug.Log(this.transform.name + ","+ myPos);
-            this.GetComponent<Rigidbody>().velocity = (this.myPos - this.transform.position).normalized * this.speed;
+            this.GetComponent<Rigidbody>().velocity = (this.myPos - this.transform.position) * this.speed;
         }
         if (this.preMode.p_mode == P_minMode.mode.alignment && this.mode.p_mode != P_minMode.mode.alignment)
         {
+            Debug.Log(i);
             PlayerObj.player.GetComponent<AlignmentPosition>().inPosition[this.i] = false;
         }
         else if (this.mode.p_mode == P_minMode.mode.avoidance)
         {
-            Vector3 tmp = Vector3.Cross(this.GetComponent<Rigidbody>().velocity.normalized, new Vector3(0, 1, 0)).normalized;
+            //Vector3 tmp = Vector3.Cross(this.velocity.normalized, new Vector3(0, 1, 0)).normalized;
             //this.GetComponent<Rigidbody>().velocity = new Vector3(tmp.x * speed , this.GetComponent<Rigidbody>().velocity.y, tmp.z * speed);
-            this.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-4, 4) * speed, this.GetComponent<Rigidbody>().velocity.y, Random.Range(-4, 4) * speed);
+            this.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1, 1) * speed, this.GetComponent<Rigidbody>().velocity.y, Random.Range(-1, 1) * speed);
         }
         this.preMode.p_mode = this.mode.p_mode;
 

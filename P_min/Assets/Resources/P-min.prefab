@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 54787728313946590}
   - component: {fileID: 114591421744521646}
   - component: {fileID: 114583015002185868}
-  - component: {fileID: 136711639089961756}
   - component: {fileID: 114662519850259706}
   - component: {fileID: 114143296121501456}
   - component: {fileID: 65810695376563590}
@@ -1187,19 +1186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02a52d5d0c6e40528eab32020f6c8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &136711639089961756
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1304917873499082}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.02
-  m_Height: 0.3
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!137 &137165871965295710
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
